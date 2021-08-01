@@ -22,15 +22,27 @@
 	</types>
 	<types>
 		<members>*</members>
+		<name>AssignmentRule</name>
+	</types>
+	<types>
+		<members>*</members>
+		<name>AssignmentRules</name>
+	</types>
+	<types>
+		<members>*</members>
 		<name>AuraDefinitionBundle</name>
 	</types>
 	<types>
 		<members>*</members>
-		<name>CustomField</name>
+		<name>AutoResponseRules</name>
 	</types>
 	<types>
 		<members>*</members>
-		<name>CustomObject</name>
+		<name>EscalationRule</name>
+	</types>
+	<types>
+		<members>*</members>
+		<name>GlobalValueSet</name>
 	</types>
 	<types>
 		<members>*</members>
@@ -42,7 +54,7 @@
 	</types>
 	<types>
 		<members>*</members>
-		<name>RecordType</name>
+		<name>Queue</name>
 	</types>
 	<types>
 		<members>*</members>
@@ -54,7 +66,7 @@
 	</types>
 	<types>
 		<members>*</members>
-		<name>ValidationRule</name>
+		<name>Workflow</name>
 	</types>
 	<version>51.0</version>
 </Package>
