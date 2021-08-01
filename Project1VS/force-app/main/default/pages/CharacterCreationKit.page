@@ -1,0 +1,59 @@
+<apex:page docType="html-5.0" standardController="Character__c"
+           extensions="CharacterKitController">
+    <apex:outputLabel ><H1>Character creation kit.
+        </H1></apex:outputLabel>
+    <apex:form >
+    	<apex:inputField value="{!Character__c.Name}"/>
+        <br/><br/>
+        <apex:outputLabel >Race: </apex:outputLabel>
+        <apex:selectList value="{!Character__c.Race__c}" size="1">
+        	<apex:selectOptions value="{!raceOptions}"></apex:selectOptions>
+        </apex:selectList>
+        <br/><br/>
+        <apex:outputLabel >Class: </apex:outputLabel>
+        <apex:selectList value="{!Character__c.Class__c}" size="1">
+        	<apex:selectOptions value="{!classOptions}"></apex:selectOptions>
+        </apex:selectList>
+        
+        <br/><br/>
+        <apex:outputLabel >Strength: </apex:outputLabel>
+        <apex:selectList value="{!Character__c.Strength__c}" size="1">
+        	<apex:selectOptions value="{!strengthOptions}"></apex:selectOptions>
+        </apex:selectList>
+        
+        <br/><br/>
+        <apex:outputLabel >Constitution: </apex:outputLabel>
+        <apex:selectList value="{!Character__c.Constitution__c}" size="1">
+        	<!--<apex:selectOptions value="{!constitutionOptions}"></apex:selectOptions>-->
+            <apex:inputField value="{!Character__c.Constitution__c}" />
+        </apex:selectList>
+        
+        <br/><br/>
+        <apex:outputLabel >Dexterity: </apex:outputLabel>
+        <apex:selectList value="{!Character__c.Dexterity__c}" size="1">
+        	<apex:selectOptions value="{!dexterityOptions}"></apex:selectOptions>
+        </apex:selectList>
+        
+        <br/><br/>
+        <apex:outputLabel >Wisdom: </apex:outputLabel>
+        <apex:selectList value="{!Character__c.Wisdom__c}" size="1">
+        	<apex:selectOptions value="{!wisdomOptions}"></apex:selectOptions>
+        </apex:selectList>
+        
+        <br/><br/>
+        <apex:outputLabel >Intelligence: </apex:outputLabel>
+        <apex:selectList value="{!Character__c.Intelligence__c}" size="1">
+        	<apex:selectOptions value="{!intelligenceOptions}"></apex:selectOptions>
+        </apex:selectList>
+        
+        <br/><br/>
+        <apex:outputLabel >Charisma: </apex:outputLabel>
+        <apex:selectList value="{!Character__c.Charisma__c}" size="1">
+        	<apex:selectOptions value="{!charismaOptions}"></apex:selectOptions>
+        </apex:selectList>
+        
+        <br/><br/>
+        <apex:outputLabel >General notes: </apex:outputLabel>
+        <apex:inputTextarea value="{!Character__c.General_Notes__c}"/>
+    </apex:form>
+</apex:page>

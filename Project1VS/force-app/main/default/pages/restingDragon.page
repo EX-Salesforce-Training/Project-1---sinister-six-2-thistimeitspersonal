@@ -1,0 +1,15 @@
+<apex:page controller="restingDragonController">
+    <apex:slds />
+    <apex:form >
+    	<apex:pageBlock >
+        	<apex:pageBlockTable value="{!finClassList}" var="res" id="form">
+            	<apex:column headerValue="class name">
+                    <apex:outputText value="{!res.name}" />
+                </apex:column>
+            	<apex:column headerValue="class url">
+                    <apex:outputText value="{!res.url}" />
+                </apex:column>
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>
