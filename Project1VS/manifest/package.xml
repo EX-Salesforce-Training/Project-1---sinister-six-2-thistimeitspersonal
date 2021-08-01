@@ -22,6 +22,10 @@
 	</types>
 	<types>
 		<members>*</members>
+		<name>ApprovalProcess</name>
+	</types>
+	<types>
+		<members>*</members>
 		<name>AssignmentRule</name>
 	</types>
 	<types>
@@ -38,15 +42,11 @@
 	</types>
 	<types>
 		<members>*</members>
-		<name>CustomObject</name>
-	</types>
-	<types>
-		<members>*</members>
-		<name>CustomField</name>
-	</types>
-	<types>
-		<members>*</members>
 		<name>EscalationRule</name>
+	</types>
+	<types>
+		<members>*</members>
+		<name>EscalationRules</name>
 	</types>
 	<types>
 		<members>*</members>
@@ -58,7 +58,15 @@
 	</types>
 	<types>
 		<members>*</members>
+		<name>LightningExperienceTheme</name>
+	</types>
+	<types>
+		<members>*</members>
 		<name>PermissionSet</name>
+	</types>
+	<types>
+		<members>*</members>
+		<name>Profile</name>
 	</types>
 	<types>
 		<members>*</members>
@@ -70,19 +78,15 @@
 	</types>
 	<types>
 		<members>*</members>
+		<name>SharingRules</name>
+	</types>
+	<types>
+		<members>*</members>
 		<name>StaticResource</name>
 	</types>
 	<types>
 		<members>*</members>
 		<name>Workflow</name>
-	</types>
-	<types>
-		<members>*</members>
-		<name>RecordType</name>
-	</types>
-	<types>
-		<members>*</members>
-		<name>ValidationRule</name>
 	</types>
 	<version>51.0</version>
 </Package>
