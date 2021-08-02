@@ -1,0 +1,42 @@
+<apex:page controller="partyPageController" extensions="ptyPgExtender">
+    <slds />
+    <apex:pageBlock >
+        <apex:pageBlockSection >
+        	<apex:outputText >
+            	Click on a party to learn more!
+            </apex:outputText>
+        </apex:pageBlockSection>
+        <apex:pageBlockSection >
+            <apex:form >
+        		<apex:pageBlockTable value="{!partyList}" var="pty">
+                	<apex:column headerValue="Name">
+                		<apex:commandLink action="{!selectParty}" value="{!pty.name}" rerender="refresh-this">
+                            <apex:param name="parameter" value="{!pty.id}" assignTo="{!selectedParty}" />
+                    	</apex:commandLink>
+                	</apex:column>
+            	</apex:pageBlockTable>
+            </apex:form>
+        </apex:pageBlockSection>
+    </apex:pageBlock>
+    	<apex:pageBlock id="refresh-this">
+                <apex:actionRegion >
+        		<apex:pageBlockSection >
+        			<apex:outputText >
+                    	{!partyName}
+                    </apex:outputText>
+        		</apex:pageBlockSection>
+        		<apex:pageBlockSection >
+        			<apex:pageBlockTable value="{!playas}" var="ply">
+                		<apex:column value="{!ply.User__c}" headerValue="Players" />
+                        <apex:column value="{!ply.name}" headerValue="Characters" />
+            		</apex:pageBlockTable>
+            	</apex:pageBlockSection>
+            	<apex:pageBlockSection >
+        			<apex:pageBlockTable value="{!cpaign}" var="cmp">
+                        <apex:column value="{!cmp.name}" headerValue="Campaign" />
+                        <apex:column value="{!cmp.Dungeon_Master__c}" headerValue="Dungeon Master" />
+            		</apex:pageBlockTable>
+            	</apex:pageBlockSection>
+            </apex:actionRegion>
+    	</apex:pageBlock>
+</apex:page>
