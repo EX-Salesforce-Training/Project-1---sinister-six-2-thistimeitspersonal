@@ -1,20 +1,114 @@
+/*
+ * Author: Jacob Schwartz
+ * Project1: DnD
+ * Date: 8/1/2021
+ * Description: Custom controller extension for CharacterCreationKit page.
+ * 
+ * Constructor set wheter it is a new character or editing an existing one,
+ * taking parameters from Player page.
+ * 
+ * Many character attributes are Decimal value in org, and vf page has them displaying
+ * as strings with selectoption. Defaults have been set in the constructor for the 
+ * edit character that displays a characters saved attributes. On save, defaults are
+ * converted from strings to integers to be uploaded to org. 
+ */
+
 public class CharacterKitController {
     
     public Character__c character {get;set;}
+    //public String param{get;set;}
+    //public String sss {get;set;}
+    
+    public String nameDefault {get;set;}
+    public String strengthDefault {get;set;}
+    public String constitutionDefault {get;set;}
+    public String dexterityDefault {get;set;}
+    public String wisdomDefault {get;set;}
+    public String intelligenceDefault {get;set;}
+    public String charismaDefault {get;set;}
+    private boolean isNewCharacter = true;
+    
     public CharacterKitController(ApexPages.StandardController sc){
-        
+        //GetParams();
+        //sc.view();
+        String idStr = ApexPages.currentPage().getParameters().get('ID');
+        System.debug('Idstr: ' + idStr);
+        System.debug('contolreexted: ' + sc.getId());
+        if(idStr != null){
+            Id idStrId = Id.valueOf(idStr);
+            character = [SELECT Name, Race__c, Class__c, Strength__c, Constitution__c,
+                         Dexterity__c, Wisdom__c, Intelligence__c, Charisma__c, General_Notes__c
+                         FROM Character__c WHERE Id =:idStrId];
+            nameDefault = character.Name;
+            strengthDefault = String.valueOf(character.Strength__c);
+            constitutionDefault = String.valueOf(character.Constitution__c);
+            dexterityDefault = String.valueOf(character.Dexterity__c);
+            wisdomDefault = String.valueOf(character.Wisdom__c);
+            intelligenceDefault = String.valueOf(character.Intelligence__c);
+            charismaDefault = String.valueOf(character.Charisma__c);
+            isNewCharacter = false;
+        }
+        else
+            character = new Character__c();
     }
     
-    
-    public List<SelectOption> GetRaceOptions(){
-
-		List<String> classList = restingDragonController.classList(restingDragonController.makeCallout());
-
-	    List<SelectOption> raceOptions = new List<SelectOption>();
-
-        for(String charClass: classList){
-            raceOptions.add(new SelectOption(charClass, charClass));
+    public PageReference save(){
+        try{
+        	character.Strength__c = CheckValidInput(strengthDefault);
+        	character.Constitution__c = CheckValidInput(constitutionDefault);
+        	character.Dexterity__c = CheckValidInput(dexterityDefault);
+        	character.Wisdom__c = CheckValidInput(wisdomDefault);
+        	character.Intelligence__c = CheckValidInput(intelligenceDefault);
+			character.Charisma__c = CheckValidInput(charismaDefault);
+        	if(isNewCharacter)
+            	insert character;
+        	else
+        		update character;
+            PageReference pr = Page.Player;
+        	pr.setRedirect(true);
+        	return pr;
         }
+        catch(Exception e){
+            ApexPages.addmessage(new ApexPages.message(ApexPages.severity.ERROR,'Please Fill Out REQUIRED Fields!'));
+        }
+        
+        return null;
+    }
+    
+    public Decimal CheckValidInput(String i){
+        try{
+            return Decimal.valueOf(i);
+        }catch(Exception e){
+            return 0;
+        }
+    }
+    /*
+    public String GetParam(){
+        return param;
+    }
+    
+    public String getFoo(){
+        return 'param';
+    }
+    
+    public void GetParams(){
+        System.debug('I am debuggognog');
+        //param = ApexPages.currentPage().getParameters().get('userName');
+        
+    }
+    */
+    public List<SelectOption> GetRaceOptions(){
+        List<SelectOption> raceOptions = new List<SelectOption>();
+        raceOptions.add(new SelectOption('','-None-'));
+        raceOptions.add(new SelectOption('Dragonborn', 'DRAGONBORN'));
+        raceOptions.add(new SelectOption('Dwarf', 'DWARF'));
+        raceOptions.add(new SelectOption('Elf', 'ELF'));
+        raceOptions.add(new SelectOption('Gnome', 'GNOME'));
+        raceOptions.add(new SelectOption('Half-Elf', 'HALF-ELF'));
+        raceOptions.add(new SelectOption('Halfling', 'HALFLING'));
+        raceOptions.add(new SelectOption('Half-Orc', 'HALF-ORC'));
+        raceOptions.add(new SelectOption('Human', 'HUMAN'));
+        raceOptions.add(new SelectOption('Tiefling', 'TIEFLING'));
         return raceOptions;
     }
     

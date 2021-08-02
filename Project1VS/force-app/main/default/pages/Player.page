@@ -1,0 +1,50 @@
+<!--
+ * Name: Jacob Schwartz
+ * Project1: DnD
+ * Date: 8/1/2021
+ * Description: VisualForce page for User information
+ * Uses User Standard Controller with a custom Controller extension
+ * 
+ * Displays user info in editable fields and allows them to be updated.
+ *
+ * Displays list of characters related to user and allows them to be updated
+ * as well as the creation of new characters.
+-->
+
+<apex:page standardController="User" extensions="PlayerController">
+    <apex:form >
+    	<apex:pageBlock >
+            <apex:outputLabel >Name: </apex:outputLabel>
+        	<apex:inputField value="{!currentUser.Name}"/>
+            
+            <br/><br/>
+            <apex:outputLabel >Username: </apex:outputLabel>
+        	<apex:outputField value="{!currentUser.Username}"/>
+            
+            <br/><br/>
+            <apex:outputLabel >Email: </apex:outputLabel>
+        	<apex:outputField value="{!currentUser.Email}"/>
+            
+            <br/><br/>
+            <apex:outputLabel >Region: </apex:outputLabel>
+        	<apex:outputField value="{!currentUser.Contact.Region__c}"/>
+            
+            <br/><br/>
+            <!--<apex:commandButton value="Save Player" action="{!save}"/>-->
+            
+            <br/><br/>
+            <apex:outputLabel >Characters: </apex:outputLabel>
+            <apex:pageBlockTable value="{!chars}" var="char">
+            	<apex:column >
+                    <apex:outputLabel value="{!char.Name}" />
+                    <apex:outputText value="   Party: {!char.Party__c}"/>
+                    <br/>
+                    <apex:commandLink action="{!CharacterTableEditClick}" value="Edit">
+                    	<apex:param name="para" value="{!char.Id}" assignTo="{!charParam}"/>
+                    </apex:commandLink>
+                </apex:column>
+            </apex:pageBlockTable>
+            <apex:commandButton value="+Create Character" action="{!GoToCharacterKitPage}" />
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>
