@@ -1,0 +1,26 @@
+<!--
+campaign name, story, associated party(link to party page)
+dungeon master
+presious session info displayed 'last time on DBZ'
+next session if planned: date/time  
+
+extensions="CampaignExtension"
+-->
+<apex:page standardController="DnDCampaign__c" recordSetVar="DnDCampaign__cs" tabstyle="DnDCampaign__c" sidebar="false">
+        <apex:pageBlock title="Campaign Information" id="Campaign_List">
+            <apex:pageBlockTable value="{!DnDCampaign__cs}" var="dnd">
+                
+                         <apex:column value="{!dnd.Name}" />
+                    
+                         <apex:column value="{!dnd.Next_Session__c}" />
+                    
+                         <apex:column value="{!dnd.Party__c}" />
+                    
+                         <apex:column value="{!dnd.Dungeon_Master__c}" />
+                    
+                         <apex:column value="{!dnd.General_Notes__c}" />
+                    
+            </apex:pageBlockTable>  
+         
+        </apex:pageBlock>
+</apex:page>
