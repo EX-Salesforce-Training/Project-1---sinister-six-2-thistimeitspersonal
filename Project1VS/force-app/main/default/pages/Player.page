@@ -19,20 +19,26 @@
             
             <br/><br/>
             <apex:outputLabel >Username: </apex:outputLabel>
-        	<apex:inputField value="{!currentUser.Username}"/>
+        	<apex:outputField value="{!currentUser.Username}"/>
             
             <br/><br/>
             <apex:outputLabel >Email: </apex:outputLabel>
-        	<apex:inputField value="{!currentUser.Email}"/>
+        	<apex:outputField value="{!currentUser.Email}"/>
             
             <br/><br/>
-            <apex:commandButton value="Save Player" action="{!save}"/>
+            <apex:outputLabel >Region: </apex:outputLabel>
+        	<apex:outputField value="{!currentUser.Contact.Region__c}"/>
+            
+            <br/><br/>
+            <!--<apex:commandButton value="Save Player" action="{!save}"/>-->
             
             <br/><br/>
             <apex:outputLabel >Characters: </apex:outputLabel>
             <apex:pageBlockTable value="{!chars}" var="char">
             	<apex:column >
                     <apex:outputLabel value="{!char.Name}" />
+                    <apex:outputText value="   Party: {!char.Party__c}"/>
+                    <br/>
                     <apex:commandLink action="{!CharacterTableEditClick}" value="Edit">
                     	<apex:param name="para" value="{!char.Id}" assignTo="{!charParam}"/>
                     </apex:commandLink>

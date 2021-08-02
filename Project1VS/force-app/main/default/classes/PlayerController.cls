@@ -26,8 +26,8 @@ public class PlayerController {
         currentUser = new User();
         //this.currentUser = (User) sc.getRecord();
         //chars = [SELECT Name FROM Character__c WHERE OwnerID =:currentUser.Id ];
-        currentUser = [SELECT Id, Name, Username, Email FROM User WHERE Id=:userinfo.getuserId()];
-        chars = [SELECT Name FROM Character__c WHERE OwnerID =:userinfo.getuserId() ];
+        currentUser = [SELECT Id, Name, Username, Email, ContactId, Contact.Region__c FROM User WHERE Id=:userinfo.getuserId()];
+        chars = [SELECT Name, Party__c FROM Character__c WHERE OwnerID =:userinfo.getuserId() ];
         System.debug('chars: ' + chars);
         //System.debug('user: ' + currentUser.First_Name__c);
         System.debug('usdreidL : ' + currentUser.Email);
