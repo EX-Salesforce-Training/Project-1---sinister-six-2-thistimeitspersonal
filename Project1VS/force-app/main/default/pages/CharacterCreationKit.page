@@ -5,6 +5,7 @@
     <apex:form >
     	<apex:inputField value="{!Character__c.Name}"/>
         <br/><br/>
+        
         <apex:outputLabel >Race: </apex:outputLabel>
         <apex:selectList value="{!Character__c.Race__c}" size="1">
         	<apex:selectOptions value="{!raceOptions}"></apex:selectOptions>

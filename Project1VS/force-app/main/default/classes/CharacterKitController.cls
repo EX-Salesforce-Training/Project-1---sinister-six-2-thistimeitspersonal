@@ -5,6 +5,7 @@ public class CharacterKitController {
         
     }
     
+    
     public List<SelectOption> GetRaceOptions(){
 
 		List<String> classList = restingDragonController.classList(restingDragonController.makeCallout());
