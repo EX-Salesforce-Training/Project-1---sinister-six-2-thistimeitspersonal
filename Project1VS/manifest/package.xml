@@ -32,6 +32,8 @@
 		<members>DnDCampaign__c</members>
 		<members>Lead</members>
 		<members>Party__c</members>
+		<members>Pricebook2</members>
+        <members>Product2</members>
 		<members>Realm__c</members>
 		<members>Region__c</members>
 		<members>Session__c</members>
