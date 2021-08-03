@@ -1,4 +1,4 @@
-<apex:page controller="partyPageController" extensions="ptyPgExtender">
+<apex:page id="Party_VFP" controller="partyPageController" extensions="ptyPgExtender">
     <slds />
     <apex:pageBlock >
         <apex:pageBlockSection >

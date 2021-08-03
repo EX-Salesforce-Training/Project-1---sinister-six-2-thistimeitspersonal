@@ -1,26 +1,38 @@
 <!--
-campaign name, story, associated party(link to party page)
-dungeon master
-presious session info displayed 'last time on DBZ'
-next session if planned: date/time  
-
-extensions="CampaignExtension"
+ * Name: Serif Korkmaz
+ * Project1: DnD
+ * Date: 8/2/2021
+ * Description: DnDCampaign VF Page
+ * Uses User Standard Controller with a custom Controller extension
+ * 
+ * Displays current DnDCampaign session.
+	- Campaign Name
+	- Story (General Notes)
+	- Party (Link to Party Page)
+	- Dungeon Master
+	- Previous Session
+	- Next Session if planned: date/time
 -->
-<apex:page standardController="DnDCampaign__c" recordSetVar="DnDCampaign__cs" tabstyle="DnDCampaign__c" sidebar="false">
-        <apex:pageBlock title="Campaign Information" id="Campaign_List">
-            <apex:pageBlockTable value="{!DnDCampaign__cs}" var="dnd">
-                
-                         <apex:column value="{!dnd.Name}" />
-                    
-                         <apex:column value="{!dnd.Next_Session__c}" />
-                    
-                         <apex:column value="{!dnd.Party__c}" />
-                    
-                         <apex:column value="{!dnd.Dungeon_Master__c}" />
-                    
-                         <apex:column value="{!dnd.General_Notes__c}" />
-                    
-            </apex:pageBlockTable>  
-         
+
+<apex:page id="Campaign_VFP" standardController="DnDCampaign__c" extensions="DndCampaignController">
+    <apex:form >
+        <apex:pageBlock >
+            <apex:outputLabel >Current Campaign Name: </apex:outputLabel>
+            <apex:outputField value="{!curCamp.Name}"/>
+            <br/><br/>
+            <apex:outputLabel >Dungeon Master: </apex:outputLabel>
+            <apex:outputField value="{!curCamp.Dungeon_Master__c}"/>
+            <br/><br/>
+            <apex:outputLabel >Party Page Link: </apex:outputLabel>
+            <apex:outputField value="{!curCamp.Party__c}"/>
+            <br/><br/>
+            <apex:outputLabel >Current Campaign Name: </apex:outputLabel>
+            <apex:outputField value="{!curCamp.Status__c}"/>
+            <br/><br/>
+         	
+            <apex:commandButton value="Go To Party Page" action="{!GoToParty}" />
         </apex:pageBlock>
+    
+    </apex:form>    
+    
 </apex:page>
