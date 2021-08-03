@@ -1,6 +1,21 @@
+/////////////////////////////////////////
+//
+// Generic REST API class
+// 
+// Purpose: Connecting to REST compatible APIs with minimal requirements, and making data available for visualforce pages
+// 
+// Initial designer: Richard 'Jerry' Laughter
+// Creation Date: 7/29/2021
+// Latest Edit: 8/2/2021
+//
+/////////////////////////////////////////
+
 public class APIExchange{
 	public static Map<String, Object> makeCallout(String apiAddress){
-		Http http = new Http();
+		//takes in REST api address and returns a map<string, object>
+		//objects must be typecast into their proper object type
+		//please consult the API docs for the endpoint before use
+        Http http = new Http();
 		httpRequest request = new HttpRequest();
 		request.setEndpoint(apiAddress);
 		request.setMethod('GET');
