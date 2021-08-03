@@ -1,3 +1,17 @@
+<!--
+Dungeons and Dragons REST API test page
+ 
+Purpose: Connecting the the dnd5eapi.co API, and verifying it's utility
+
+notes: this does not replace an apex test class, code coverage tests should still be performed
+		this page is to visually inspect the data recieved
+ 
+Initial designer: Richard 'Jerry' Laughter
+Creation Date: 7/29/2021
+Latest Edit: 8/2/2021
+
+-->
+
 <apex:page controller="restingDragonController">
     <apex:slds />
     

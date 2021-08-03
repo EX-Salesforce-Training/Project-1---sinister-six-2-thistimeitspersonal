@@ -8,7 +8,7 @@ extensions="CampaignExtension"
 -->
 <apex:page standardController="DnDCampaign__c" recordSetVar="DnDCampaign__cs" tabstyle="DnDCampaign__c" sidebar="false">
         <apex:pageBlock title="Campaign Information" id="Campaign_List">
-            <apex:pageBlockTable value="{!DnDCampaign__cs}" var="dnd">
+            <apex:pageBlockTable value="{!DnDCampaign__c}" var="dnd">
                 
                          <apex:column value="{!dnd.Name}" />
                     

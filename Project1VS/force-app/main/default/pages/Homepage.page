@@ -1,0 +1,9 @@
+<apex:page standardController="Campaign" extensions="HomepageController">
+    <apex:pageBlock >
+        <apex:outputLabel value="Homepage" />
+        <br/>
+    </apex:pageBlock>
+    <apex:pageBlock >
+    	<apex:outputLabel value="{!description}"></apex:outputLabel>
+    </apex:pageBlock>
+</apex:page>
