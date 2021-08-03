@@ -1,0 +1,58 @@
+{
+  "appPageId" : "79fd57e0-aa5b-4d59-951e-0a43848cd3b3",
+  "componentName" : "community_layout:sldsFlexibleLayout",
+  "id" : "e75225ff-fc7a-46f9-b318-74a037a47ebf",
+  "label" : "signup",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "sectionConfig" : "{\"UUID\":\"f5769ad2-2a3f-4f56-82ce-b95d73167a72\",\"columns\":[{\"UUID\":\"22beae69-0995-4ec0-adf5-f8604808d1b2\",\"columnName\":\"Column 1\",\"columnKey\":\"col1\",\"columnWidth\":\"12\",\"seedComponents\":[]}]}"
+      },
+      "componentName" : "community_layout:section",
+      "id" : "f5769ad2-2a3f-4f56-82ce-b95d73167a72",
+      "regions" : [ {
+        "components" : [ {
+          "componentAttributes" : {
+            "richTextValue" : "<form action=\"https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8\" method=\"POST\">\n\n<input type=hidden name=\"oid\" value=\"00D5e000004gALL\">\n<input type=hidden name=\"retURL\" value=\"https://sinistertest-developer-edition.na162.force.com/s/\">\n\n<!--  ----------------------------------------------------------------------  -->\n<!--  NOTE: These fields are optional debugging elements. Please uncomment    -->\n<!--  these lines if you wish to test in debug mode.                          -->\n<!--  <input type=\"hidden\" name=\"debug\" value=1>                              -->\n<!--  <input type=\"hidden\" name=\"debugEmail\"                                  -->\n<!--  value=\"laughteralan@gmail.com\">                                         -->\n<!--  ----------------------------------------------------------------------  -->\n\n<label for=\"first_name\">First Name</label><input  id=\"first_name\" maxlength=\"40\" name=\"first_name\" size=\"20\" type=\"text\" /><br>\n\n<label for=\"last_name\">Last Name</label><input  id=\"last_name\" maxlength=\"80\" name=\"last_name\" size=\"20\" type=\"text\" /><br>\n\n<label for=\"email\">Email</label><input  id=\"email\" maxlength=\"80\" name=\"email\" size=\"20\" type=\"text\" /><br>\n\n<label for=\"company\">Company</label><input  id=\"company\" maxlength=\"40\" name=\"company\" size=\"20\" type=\"text\" /><br>\n\n<label for=\"city\">City</label><input  id=\"city\" maxlength=\"40\" name=\"city\" size=\"20\" type=\"text\" /><br>\n\n<label for=\"state\">State/Province</label><input  id=\"state\" maxlength=\"20\" name=\"state\" size=\"20\" type=\"text\" /><br>\n\nAvailable for Online:<input  id=\"00N5e00000YMoAW\" name=\"00N5e00000YMoAW\" type=\"checkbox\" value=\"1\" /><br>\n\n<label for=\"Campaign_ID\">Campaign</label><select  id=\"Campaign_ID\" name=\"Campaign_ID\"><option value=\"\">--None--</option><option value=\"7015e000000yJBj\">User Conference - Jun 17-19, 2002</option>\n<option value=\"7015e000000yJBk\">DM Campaign to Top Customers - Nov 12-23, 2001</option>\n<option value=\"7015e000000yJBl\">International Electrical Engineers Association Trade Show - Mar 4-5, 2002</option>\n<option value=\"7015e000000yJBi\">GC Product Webinar - Jan 7, 2002</option>\n</select><br>\n\n<input type=\"submit\" name=\"submit\">\n\n</form>"
+          },
+          "componentName" : "community_builder:htmlEditor",
+          "id" : "5632db39-6250-427d-9f43-fa5265371272",
+          "renderPriority" : "NEUTRAL",
+          "renditionMap" : { },
+          "type" : "component"
+        } ],
+        "id" : "22beae69-0995-4ec0-adf5-f8604808d1b2",
+        "regionLabel" : "Column 1",
+        "regionName" : "col1",
+        "renditionMap" : { },
+        "type" : "region"
+      } ],
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "60defb55-a50f-4e6b-ada6-1b35770fc599",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "pageTitle" : "signup",
+        "recordId" : "{!recordId}"
+      },
+      "componentName" : "community_builder:seoAssistant",
+      "id" : "aa111afa-945e-4bef-a027-1b8fd40c1026",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "7eaebb5b-46e3-491d-a03a-2bcb9f18e326",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-signup"
+}
