@@ -9,7 +9,7 @@
         <filterItems>
             <field>User.UserRole.Name</field>
             <operation>equals</operation>
-            <value>Dungeon_Master</value>
+            <value>Dungeon Master</value>
         </filterItems>
         <isOptional>false</isOptional>
     </lookupFilter>

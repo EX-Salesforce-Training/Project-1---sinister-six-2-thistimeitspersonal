@@ -13,6 +13,7 @@
 	- Previous Session
 	- Next Session if planned: date/time
 -->
+<<<<<<< HEAD
 
 <apex:page id="Campaign_VFP" standardController="DnDCampaign__c" extensions="DndCampaignController">
     <apex:form >
@@ -31,6 +32,24 @@
             <br/><br/>
          	
             <apex:commandButton value="Go To Party Page" action="{!GoToParty}" />
+=======
+<apex:page standardController="DnDCampaign__c" recordSetVar="DnDCampaign__cs" tabstyle="DnDCampaign__c" sidebar="false">
+        <apex:pageBlock title="Campaign Information" id="Campaign_List">
+            <apex:pageBlockTable value="{!DnDCampaign__c}" var="dnd">
+                
+                         <apex:column value="{!dnd.Name}" />
+                    
+                         <apex:column value="{!dnd.Next_Session__c}" />
+                    
+                         <apex:column value="{!dnd.Party__c}" />
+                    
+                         <apex:column value="{!dnd.Dungeon_Master__c}" />
+                    
+                         <apex:column value="{!dnd.General_Notes__c}" />
+                    
+            </apex:pageBlockTable>  
+         
+>>>>>>> Carlo2
         </apex:pageBlock>
     
     </apex:form>    

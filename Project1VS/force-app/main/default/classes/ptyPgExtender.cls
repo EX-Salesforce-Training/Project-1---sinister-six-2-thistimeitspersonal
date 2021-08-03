@@ -21,7 +21,8 @@ public class ptyPgExtender {
         //This looks like it will display every single party. But since we're in system context, it'll take into account
         //the user's security settings. So any user who visits here won't be able to see any parties that they don't
         //have access to.
-        return [SELECT name FROM party__c];
+       	List<Party__c> parties = [SELECT name FROM party__c];
+        return parties;
     }
     
     // This method fires when you click on an item in the "Party" table. It should show:
@@ -52,7 +53,7 @@ public class ptyPgExtender {
     }
     
     public List<DndCampaign__c> getCpaign() {
-        return [SELECT name, dungeon_master__c FROM DndCampaign__c where party__c =: selectedParty];
+        return [SELECT campaign_name__c, dungeon_master__c FROM DndCampaign__c where party__c =: selectedParty];
     }
     
     

@@ -1,0 +1,59 @@
+{
+  "activeBrandingSetId" : "63737d82-a92a-47ac-8cc4-7d9faebc19e8",
+  "customCSS" : "",
+  "developerName" : "byo",
+  "id" : "ef3fb227-fd33-4674-a532-c75d8c85a268",
+  "label" : "Build Your Own (LWR)",
+  "layouts" : {
+    "Inner" : "0004843e-6b00-4dc4-8c29-d59d4abd524b"
+  },
+  "type" : "theme",
+  "views" : [ {
+    "componentAttributes" : { },
+    "componentName" : "community_byo:scopedHeaderAndFooter",
+    "id" : "0004843e-6b00-4dc4-8c29-d59d4abd524b",
+    "label" : "Scoped Header and Footer",
+    "regions" : [ {
+      "components" : [ {
+        "componentAttributes" : {
+          "sectionConfig" : "{\"UUID\":\"616f25dc-da46-4f21-802f-3d44b019d323\",\"columns\":[{\"UUID\":\"2b0c749e-b1fc-42ff-9de0-22662eb195a9\",\"columnName\":\"Column 1\",\"columnKey\":\"headerSection\",\"columnWidth\":\"12\",\"seedComponents\":null}]}"
+        },
+        "componentName" : "community_layout:section",
+        "id" : "616f25dc-da46-4f21-802f-3d44b019d323",
+        "regions" : [ {
+          "id" : "2b0c749e-b1fc-42ff-9de0-22662eb195a9",
+          "regionLabel" : "Theme Header",
+          "regionName" : "headerSection",
+          "renditionMap" : { },
+          "type" : "region"
+        } ],
+        "renditionMap" : { },
+        "type" : "component"
+      } ],
+      "id" : "68261ffa-c841-4e6c-8be8-5daeb52f37e2",
+      "regionName" : "header",
+      "type" : "region"
+    }, {
+      "components" : [ {
+        "componentAttributes" : {
+          "sectionConfig" : "{\"UUID\":\"0d19fb69-4f2e-4dff-a36e-208fe6ea8314\",\"columns\":[{\"UUID\":\"1c601407-e8d0-46fc-8964-de21ea2d4637\",\"columnName\":\"Column 1\",\"columnKey\":\"footerSection\",\"columnWidth\":\"12\",\"seedComponents\":null}]}"
+        },
+        "componentName" : "community_layout:section",
+        "id" : "0d19fb69-4f2e-4dff-a36e-208fe6ea8314",
+        "regions" : [ {
+          "id" : "1c601407-e8d0-46fc-8964-de21ea2d4637",
+          "regionLabel" : "Theme Footer",
+          "regionName" : "footerSection",
+          "renditionMap" : { },
+          "type" : "region"
+        } ],
+        "renditionMap" : { },
+        "type" : "component"
+      } ],
+      "id" : "71c28e64-ee85-4d99-929d-714ccb9c78d0",
+      "regionName" : "footer",
+      "type" : "region"
+    } ],
+    "type" : "view"
+  } ]
+}

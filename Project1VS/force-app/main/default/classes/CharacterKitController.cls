@@ -2,6 +2,7 @@
  * Author: Jacob Schwartz
  * Project1: DnD
  * Date: 8/1/2021
+ * Last Edited: 8/2/2021
  * Description: Custom controller extension for CharacterCreationKit page.
  * 
  * Constructor set wheter it is a new character or editing an existing one,
@@ -98,35 +99,26 @@ public class CharacterKitController {
     }
     */
     public List<SelectOption> GetRaceOptions(){
+        List<String> raceList = restingDragonController.indexList('races/');
+
         List<SelectOption> raceOptions = new List<SelectOption>();
-        raceOptions.add(new SelectOption('','-None-'));
-        raceOptions.add(new SelectOption('Dragonborn', 'DRAGONBORN'));
-        raceOptions.add(new SelectOption('Dwarf', 'DWARF'));
-        raceOptions.add(new SelectOption('Elf', 'ELF'));
-        raceOptions.add(new SelectOption('Gnome', 'GNOME'));
-        raceOptions.add(new SelectOption('Half-Elf', 'HALF-ELF'));
-        raceOptions.add(new SelectOption('Halfling', 'HALFLING'));
-        raceOptions.add(new SelectOption('Half-Orc', 'HALF-ORC'));
-        raceOptions.add(new SelectOption('Human', 'HUMAN'));
-        raceOptions.add(new SelectOption('Tiefling', 'TIEFLING'));
+
+        for (String race: raceList){
+            raceOptions.add(new SelectOption(race, race));
+        }
+
         return raceOptions;
     }
     
     public List<SelectOption> GetClassOptions(){
+        List<String> classList = restingDragonController.indexList('classes/');
+
         List<SelectOption> classOptions = new List<SelectOption>();
-        classOptions.add(new SelectOption('','-None-'));
-        classOptions.add(new SelectOption('Barbarian', 'BARBARIAN'));
-        classOptions.add(new SelectOption('Bard', 'BARD'));
-        classOptions.add(new SelectOption('Cleric', 'CLERIC'));
-        classOptions.add(new SelectOption('Druid', 'DRUID'));
-        classOptions.add(new SelectOption('Fighter', 'FIGHTER'));
-        classOptions.add(new SelectOption('Monk', 'MONK'));
-        classOptions.add(new SelectOption('Paladin', 'PALADIN'));
-        classOptions.add(new SelectOption('Ranger', 'RANGER'));
-        classOptions.add(new SelectOption('Rogue', 'ROGUE'));
-        classOptions.add(new SelectOption('Sorcerer', 'SORCERER'));
-        classOptions.add(new SelectOption('Warlock', 'WARLOCK'));
-        classOptions.add(new SelectOption('Wizard', 'WIZARD'));
+
+        for (String curClass: classList){
+            classOptions.add(new SelectOption(curClass, curClass));
+        }
+
         return classOptions;
     }
     

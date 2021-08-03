@@ -6,86 +6,64 @@
 // 
 // Initial designer: Richard 'Jerry' Laughter
 // Creation Date: 7/29/2021
-// Latest Edit: 7/29/2021
+// Latest Edit: 8/2/2021
 //
 /////////////////////////////////////////
 
 public class restingDragonController {
     
-    public List<charClass> finClassList {get;set;}
-    
+    public List<charAttribute> finClassList {get;set;}
+    public List<String> categories = new List<String>{'classes/', 'ability-scores/', 'skills/', 'proficiencies/', 'languages/', 'alignment/', 'backgrounds/', 'races/', 'traits/', 'equipment-categories/', 'equipment/', 'magic-items/', 'weapon-properties/', 'spells/', ''};
+
     public restingDragonController(){
-        finClassList = classMap(makeCallout());
-    }
-
-    public static List<charClass> classMap (Map<String, Object> respMap){
-	    // casts object into list of objects
-        List<Object> classList = (List<Object>)
-	        respMap.get('results');
-        
-        // 
-        // 
-        
-        List<charClass> finClassList = new List<charClass>();
-        
-        for(Object o: classList){
-            charClass curClass = new charClass(o);
-			finClassList.add(curClass);
-        }
-        return finClassList;
+        finClassList = getCharAttribute(categories[0]);
     }
     
-    public static List<String> classList (Map<String, Object> respMap){
-	    // casts object into list of objects
-        List<Object> curClassList = (List<Object>)
-	        respMap.get('results');
-        
-        // 
-        
-        List<String> finClassList = new List<String>();
-        
-        for(Object o: curClassList){
-            charClass curClass = new charClass(o);
-			finClassList.add(curClass.name);
+    public static List<String> indexList (String index){
+        // casts object into list of objects
+
+
+        List<charAttribute> curAttrList = getCharAttribute(index);
+        List<String> finAttrList = new List<String>();
+
+        for (charAttribute ca: curAttrList){
+            finAttrList.add(ca.index);
         }
-        return finClassList;
+
+        return finAttrList;
+
+
     }
-            
-    public static  Map<String, Object> makeCallout(){
-        String apiAddress = 'https://www.dnd5eapi.co/api/';
-            
-        List<String> categories = new List<String>{'classes/', 'ability-scores/', 'skills/', 'proficiencies/', 'languages/', 'alignment/', 'backgrounds/', 'races/', 'traits/', 'equipment-categories/', 'equipment/', 'magic-items/', 'weapon-properties/', 'spells/', ''};
-        
-        Http http = new Http();
-        httpRequest request = new HttpRequest();
-        request.setEndpoint(apiAddress + categories[0]);
-        request.setMethod('GET');
-        request.setHeader('Content-Type', 'application/json');
-        request.setHeader('Accept', 'application/json');
-        HttpResponse response = http.send(request);
-        
-        if (response.getStatusCode() == 200){
 
-            // creations an string, object map from JSON string
-            Map<String, Object> respMap = (Map<String, Object>)
-                JSON.deserializeUntyped(response.getBody());
+    public static List<charAttribute> getCharAttribute(String index){
 
-            return respMap;
-            //return finClassList;
+        Map<String, Object> respMap = APIExchange.makeCallout('https://www.dnd5eapi.co/api/' + index);
+
+        List<Object> curIndexList = (List<Object>)
+            respMap.get('results');
+
+        List<charAttribute> finAttributeList = new List<charAttribute>();
+
+        for(Object o: curIndexList){
+            charAttribute curAttribute = new charAttribute(o);
+            finAttributeList.add(curAttribute);
         }
-        return null;
-            
-    }	
 
-    public class charClass{
+        return finAttributeList;
+
+    }
+
+    public class charAttribute{
         public String name {get;set;}
         public String URL {get; set;}
+        public String index {get; set;}
         
-        public charClass(Object rawData){
-            Map<String, Object> finClassList = (Map<String, Object>)rawData;
+        public charAttribute(Object rawData){
+            Map<String, Object> finObjList = (Map<String, Object>)rawData;
 
-            name = String.valueOf(finClassList.get('name'));
-            URL = String.valueOf(finClassList.get('url'));
+            index = String.valueOf(finObjList.get('index'));
+            name = String.valueOf(finObjList.get('name'));
+            URL = String.valueOf(finObjList.get('url'));
         }
 
     }
