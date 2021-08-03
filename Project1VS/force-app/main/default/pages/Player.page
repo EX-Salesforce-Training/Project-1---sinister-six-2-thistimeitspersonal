@@ -34,13 +34,16 @@
             
             <br/><br/>
             <apex:outputLabel >Characters: </apex:outputLabel>
-            <apex:pageBlockTable value="{!chars}" var="char">
+            <apex:pageBlockTable value="{!charWrapList}" var="char">
             	<apex:column >
-                    <apex:outputLabel value="{!char.Name}" />
-                    <apex:outputText value="   Party: {!char.Party__c}"/>
-                    <br/>
+                    <apex:outputLabel value="{!char.character.Name}" />
+                    <br />
+                    <apex:commandLink action="{!PartyPageClick}" value="Party: {!char.charParty}">
+                    	<!--<apex:param name="para" value="{!char.character.Id}" assignTo="{!charParam}"/>-->
+                    </apex:commandLink>
+                    <br/><br/>
                     <apex:commandLink action="{!CharacterTableEditClick}" value="Edit">
-                    	<apex:param name="para" value="{!char.Id}" assignTo="{!charParam}"/>
+                    	<apex:param name="para" value="{!char.character.Id}" assignTo="{!charParam}"/>
                     </apex:commandLink>
                 </apex:column>
             </apex:pageBlockTable>

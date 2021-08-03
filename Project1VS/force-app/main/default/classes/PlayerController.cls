@@ -21,14 +21,16 @@ public class PlayerController {
     public String charParam {get;set;}
     public List<User> uList {get;set;}
     public user currentUser {get;set;}
+    public List<CharWrap> charWrapList {get;set;} 
     public PlayerController(ApexPages.StandardController sc){
         uList = [SELECT Name, Id FROM User];
         currentUser = new User();
         //this.currentUser = (User) sc.getRecord();
         //chars = [SELECT Name FROM Character__c WHERE OwnerID =:currentUser.Id ];
         currentUser = [SELECT Id, Name, Username, Email, ContactId, Contact.Region__c FROM User WHERE Id=:userinfo.getuserId()];
-        chars = [SELECT Name, Party__c FROM Character__c WHERE OwnerID =:userinfo.getuserId() ];
+        chars = [SELECT Name, Party__r.Name FROM Character__c WHERE OwnerID =:userinfo.getuserId() ];
         System.debug('chars: ' + chars);
+        charWrapList = setCharWrapList(chars);
         //System.debug('user: ' + currentUser.First_Name__c);
         System.debug('usdreidL : ' + currentUser.Email);
     }
@@ -64,10 +66,40 @@ public class PlayerController {
         return pr;
     }
     
+    public PageReference PartyPageClick(){
+        PageReference pr = Page.partyPage;
+        pr.setRedirect(true);
+        return pr;
+    }
+    
     public PageReference save(){
         //currentUser.First_Name__c = 'stringFirstname';
         update currentUser;
         return null;
+    }
+    
+    public List<CharWrap> setCharWrapList(List<Character__c> cList){
+            List<CharWrap> returnList = new List<CharWrap>();
+            for(Character__c c : cList){
+                returnList.add(new charWrap(c));
+            }
+            return returnList;
+        }
+    
+    private class charWrap{
+        public String charParty {get;set;}
+        public Character__c character {get;set;}
+        public charWrap(Character__c c){
+            this.character = c;
+            System.debug('charparty: ' + character.Party__c);
+            if(character.Party__r.Name == null){
+                charParty = 'None';
+            }
+            else{
+                charParty = c.Party__r.Name;
+            }
+        }
+        
     }
 
 }

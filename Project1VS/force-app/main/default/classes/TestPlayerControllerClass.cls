@@ -1,3 +1,15 @@
+//////////////////////////////////////////////////
+/*
+ * Author: Jacob Schwartz
+ * Date: 8/1/2021
+ * Description: Class contains tests for CharacterKitControllerClass
+ * Contains One test function.
+ * 
+ * TestPlayerMethod() tests to see if logged in user is active on the page and that
+ * buttons with related actions are executing properly.
+ */
+//////////////////////////////////////////////////
+
 @isTest
 public class TestPlayerControllerClass {
     
@@ -49,6 +61,37 @@ public class TestPlayerControllerClass {
             System.debug('test aftersave userux: ' + ux);
             System.debug('test aftersave currentUser: ' + ext.currentUser);
             System.assertEquals(uu.Id, ux.Id);
+        }
+    }
+    
+    @isTest static void TestPartyPage(){
+        User uu = CreateTestUser();
+        //run with current user
+        System.runAs(uu){
+            System.debug(uu);
+            //create test player page and contrller
+        	PageReference testPage = Page.Player; 
+        	Test.setCurrentPage(testPage);
+        	testPage.getParameters().put('ID', '' + String.valueOf(uu.Id));
+        
+        	ApexPages.StandardController sc = new  ApexPages.StandardController(uu);     
+        	PlayerController ext = new PlayerController(sc);
+            
+            Character__c testChar = new Character__c(Name = 'Char1', Race__c='Elf', Class__c='Bard');
+            insert testChar;
+            
+            //Character__c testChar2 = new Character__c(Name = 'Char1', Race__c='Elf', Class__c='Bard', Party__c = 'Party1');
+            //insert testChar2;
+            
+            List<Character__c> cList = new List<Character__c>();
+            cList.add(testChar);
+            //cList.add(testChar2);
+            ext.charWrapList = ext.setCharWrapList(cList);
+            
+            System.assertEquals(1, ext.charWrapList.size());
+            
+            PageReference partyRef = ext.PartyPageClick();
+            System.assertNotEquals(null, partyRef);
         }
     }
     

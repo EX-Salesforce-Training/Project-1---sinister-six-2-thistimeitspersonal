@@ -1,8 +1,26 @@
+//////////////////////////////////////////////////
+/*
+ * Author: Jacob Schwartz
+ * Date: 8/1/2021
+ * Description: Class contains tests for CharacterKitControllerClass
+ * Contains four test functions.
+ * 
+ * TestCreateKitPage() and TestEditKitPage() test opening the page from either
+ * the create or edit buttons from the player page. Tests what is displayed
+ * on the page. 
+ * 
+ * TestOtherFunction() tests various helper functions in class.
+ * 
+ * TestError() tests that required fields error pops up if user tries to save without
+ * filling in required fields.
+ */
+//////////////////////////////////////////////////
+
 @isTest
 public class TestCharacterKitControllerClass {
     
     @isTest static void TestCreateKitPage(){
-        User uu = CreateTestUser();
+        User uu = TestUtil.CreateTestUser();
         
         System.runAs(uu){
             
@@ -26,7 +44,7 @@ public class TestCharacterKitControllerClass {
     }
     
     @isTest static void TestEditKitPage(){
-        User uu = CreateTestUser();
+        User uu = TestUtil.CreateTestUser();
         System.runAs(uu){
             PageReference testKitPage = Page.CharacterCreationKit;
             Character__c testChar = new Character__c(Name = 'Char1', Race__c='Elf', Class__c='Bard');
@@ -47,7 +65,7 @@ public class TestCharacterKitControllerClass {
     }
     
     @isTest static void TestOtherFunctions(){
-        User uu = CreateTestUser();
+        User uu = TestUtil.CreateTestUser();
         System.runAs(uu){
             PageReference testKitPage = Page.CharacterCreationKit;
             Character__c testChar = new Character__c(Name = 'Char1', Race__c='Elf', Class__c='Bard');
@@ -86,7 +104,7 @@ public class TestCharacterKitControllerClass {
     }
     
     @isTest static void TestError(){
-        User uu = CreateTestUser();
+        User uu = TestUtil.CreateTestUser();
         
         System.runAs(uu){
             
@@ -106,33 +124,6 @@ public class TestCharacterKitControllerClass {
             System.assertEquals(null, pr);
         }
         
-    }
-    
-    private static User CreateTestUser(){
-        UserRole obj=new UserRole(Name= 'ABC'); 
-		insert obj; 
-
-		Profile pf= [Select Id from profile where Name='System Administrator']; 
-
-		String orgId=UserInfo.getOrganizationId(); 
-		String dateString=String.valueof(Datetime.now()).replace(' ','').replace(':','').replace('-','');
-
-		Integer RandomId=Integer.valueOf(Math.rint(Math.random()*1000000)); 
-		String uniqueName=orgId+dateString+RandomId; 
-
-		User uu=new User(firstname = 'ABC', 
-		lastName = 'XYZ',
-		email = uniqueName + '@test' + orgId + '.org', 
-		Username = uniqueName + '@test' + orgId + '.org',
-		EmailEncodingKey = 'ISO-8859-1', 
-		Alias = uniqueName.substring(18, 23), 
-		TimeZoneSidKey = 'America/Los_Angeles', 
-		LocaleSidKey = 'en_US', 
-		LanguageLocaleKey = 'en_US', 
-		ProfileId = pf.Id, 
-		UserRoleId = obj.Id);
-        insert uu;
-        return uu;
     }
 
 }
