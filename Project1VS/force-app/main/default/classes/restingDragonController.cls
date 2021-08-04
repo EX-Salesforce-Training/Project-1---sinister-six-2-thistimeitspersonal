@@ -21,8 +21,9 @@ public class restingDragonController {
     
     public static List<String> indexList (String index){
 		//creates a list of strings from the index of the character attribute list
+
+    	List<charAttribute> curAttrList = getCharAttribute(index);
         
-        List<charAttribute> curAttrList = getCharAttribute(index);
         List<String> finAttrList = new List<String>();
 
         for (charAttribute ca: curAttrList){
