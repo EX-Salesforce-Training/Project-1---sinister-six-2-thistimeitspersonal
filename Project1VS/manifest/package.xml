@@ -110,6 +110,18 @@
 		<name>RemoteSiteSetting</name>
 	</types>
 	<types>
+        <members>*</members>
+        <members>unfiled$public/Finished_Campaigns_by_Region_NVN</members>
+		<members>unfiled$public/All_Leads_Qte</members>
+		<members>unfiled$public/All_Users_MxJ</members>
+		<members>unfiled$public/All_Opportunities_OzM</members>
+        <name>Report</name>
+    </types>
+	<types>
+		<members>*</members>
+		<name>ReportType</name>
+	</types>
+	<types>
 		<members>*</members>
 		<name>Role</name>
 	</types>
