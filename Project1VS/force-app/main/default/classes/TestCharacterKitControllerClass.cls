@@ -65,22 +65,22 @@ public class TestCharacterKitControllerClass {
             List<SelectOption> classList = ext.GetClassOptions();
             System.assertEquals(13, classList.size());
             
-            List<SelectOption> s1 = ext.GetStrengthOptions();
+            List<SelectOption> s1 = ext.GetAttributeOptions();
             System.assertEquals(21, s1.size());
             
-            List<SelectOption> s2 = ext.GetDexterityOptions();
+            List<SelectOption> s2 = ext.GetAttributeOptions();
             System.assertEquals(21, s2.size());
             
-            List<SelectOption> s3 = ext.GetConstitutionOptions();
+            List<SelectOption> s3 = ext.GetAttributeOptions();
             System.assertEquals(21, s3.size());
             
-            List<SelectOption> s4 = ext.GetWisdomOptions();
+            List<SelectOption> s4 = ext.GetAttributeOptions();
             System.assertEquals(21, s4.size());
             
-            List<SelectOption> s5 = ext.GetIntelligenceOptions();
+            List<SelectOption> s5 = ext.GetAttributeOptions();
             System.assertEquals(21, s5.size());
             
-            List<SelectOption> s6 = ext.GetCharismaOptions();
+            List<SelectOption> s6 = ext.GetAttributeOptions();
             System.assertEquals(21, s6.size());
         }
     }
