@@ -1,4 +1,5 @@
 public class DndCampaignController {
+    public DndCampaignController(){}
     public List<DnDCampaign__c> campList {get;set;}
     public DnDCampaign__c curCamp{get; set;}
     public DndCampaignController(ApexPages.StandardController sc){
