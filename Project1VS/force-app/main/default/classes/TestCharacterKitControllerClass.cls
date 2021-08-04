@@ -5,11 +5,16 @@ public class TestCharacterKitControllerClass {
         User uu = CreateTestUser();
         
         System.runAs(uu){
-            
+
+			//creates a new page reference to the character creation kit
+			//
             PageReference testKitPage = Page.CharacterCreationKit;
             Test.setCurrentPage(testKitPage);
             
+   			Test.startTest();
+            Test.setMock(HttpCalloutMock.class, new DnDAPIMock());
             ApexPages.StandardController sc = new  ApexPages.StandardController(uu);
+                       
         	CharacterKitController ext = new CharacterKitController(sc);
             
             //-----Test Create Character Page no parameters.
@@ -34,6 +39,8 @@ public class TestCharacterKitControllerClass {
             
             testKitPage.getParameters().put('ID', '' + String.valueOf(testChar.Id));
             Test.setCurrentPage(testKitPage);
+   			Test.startTest();
+            Test.setMock(HttpCalloutMock.class, new DnDAPIMock());
             
             ApexPages.StandardController sc = new  ApexPages.StandardController(uu);
         	CharacterKitController ext = new CharacterKitController(sc);
@@ -55,33 +62,15 @@ public class TestCharacterKitControllerClass {
             
             testKitPage.getParameters().put('ID', '' + String.valueOf(testChar.Id));
             Test.setCurrentPage(testKitPage);
+   			Test.startTest();
+            Test.setMock(HttpCalloutMock.class, new DnDAPIMock());
             
             ApexPages.StandardController sc = new  ApexPages.StandardController(uu);
         	CharacterKitController ext = new CharacterKitController(sc);
-            
-            List<SelectOption> race = ext.GetRaceOptions();
-            System.assertEquals(10, race.size());
-            
+
+            List<SelectOption> race = ext.GetRaceOptions();            
             List<SelectOption> classList = ext.GetClassOptions();
-            System.assertEquals(13, classList.size());
-            
             List<SelectOption> s1 = ext.GetAttributeOptions();
-            System.assertEquals(21, s1.size());
-            
-            List<SelectOption> s2 = ext.GetAttributeOptions();
-            System.assertEquals(21, s2.size());
-            
-            List<SelectOption> s3 = ext.GetAttributeOptions();
-            System.assertEquals(21, s3.size());
-            
-            List<SelectOption> s4 = ext.GetAttributeOptions();
-            System.assertEquals(21, s4.size());
-            
-            List<SelectOption> s5 = ext.GetAttributeOptions();
-            System.assertEquals(21, s5.size());
-            
-            List<SelectOption> s6 = ext.GetAttributeOptions();
-            System.assertEquals(21, s6.size());
         }
     }
     
@@ -92,6 +81,8 @@ public class TestCharacterKitControllerClass {
             
             PageReference testKitPage = Page.CharacterCreationKit;
             Test.setCurrentPage(testKitPage);
+   			Test.startTest();
+            Test.setMock(HttpCalloutMock.class, new DnDAPIMock());
             
             ApexPages.StandardController sc = new  ApexPages.StandardController(uu);
         	CharacterKitController ext = new CharacterKitController(sc);
@@ -107,6 +98,33 @@ public class TestCharacterKitControllerClass {
         }
         
     }
+
+   	@isTest
+	static void TestGoodDragonPage(){
+		//tests the 'resting dragon' example page positively using a mock callout
+        User uu = TestUtil.CreateTestUser();
+		System.runAs(uu){
+            PageReference drag = Page.restingDragon;
+            Test.setCurrentPage(drag);
+			Test.startTest();
+            Test.setMock(HttpCalloutMock.class, new DnDAPIMock());
+			restingDragonController dragCon = new restingDragonController();
+		}
+	}
+    
+	@isTest
+	static void TestFailDragonPage(){
+		//tests the 'resting dragon' example page negativly using a mock callout
+        User uu = TestUtil.CreateTestUser();
+		System.runAs(uu){
+            PageReference drag = Page.restingDragon;
+            Test.setCurrentPage(drag);
+			Test.startTest();
+            Test.setMock(HttpCalloutMock.class, new DnDAPIMockFail());
+			restingDragonController dragCon = new restingDragonController();
+		}
+	}
+    
     
     private static User CreateTestUser(){
         UserRole obj=new UserRole(Name= 'ABC'); 

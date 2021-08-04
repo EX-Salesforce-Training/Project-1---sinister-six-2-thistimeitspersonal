@@ -25,12 +25,12 @@
 		<name>AuraDefinitionBundle</name>
 	</types>
 	<types>
-        <members>*</members>
-        <name>AutoResponseRule</name>
-    </types>
-	<types>
-		<members>*</members>
-		<name>CustomField</name>
+		<members>DnD_Realms</members>
+		<members>DnD_Universe_Admin</members>
+		<members>DnD_Universe_DM_Panel</members>
+		<members>DnD_coin_collector</members>
+		<members>Palace</members>
+		<name>CustomApplication</name>
 	</types>
 	<types>
 		<members>Account</members>
@@ -46,10 +46,6 @@
 		<members>User</members>
 		<name>CustomObject</name>
 	</types>
-	<types>
-        <members>*</members>
-        <name>EmailTemplate</name>
-    </types>
 	<types>
 		<members>*</members>
 		<name>GlobalValueSet</name>
@@ -100,43 +96,27 @@
 		<members>dnduni2 Profile</members>
 		<members>project1 Profile</members>
 		<name>Profile</name>
+	</types>    
+	<types>
+		<members>*</members>
+		<name>FlexiPage</name>
 	</types>
 	<types>
-        <members>*</members>
-        <name>AssignmentRule</name>
-    </types>
-<types>
-        <members>*</members>
-        <name>AutoResponseRule</name>
-    </types>
-<types>
-        <members>*</members>
-        <name>EmailTemplate</name>
-    </types>
-<types>
-        <members>*</members>
-        <name>EscalationRule</name>
-    </types>
-    <types>
-        <members>*</members>
-        <name>EscalationRules</name>
-    </types>
+		<members>*</members>
+		<name>ContentAsset</name>
+	</types>
+	<types>
+		<members>*</members>
+		<name>CustomTab</name>
+	</types>
 	<types>
 		<members>*</members>
 		<name>Queue</name>
 	</types>
 	<types>
-		<members>*</members>
-		<name>RemoteSiteSetting</name>
+		<members>unfiled$public/leads_over_time_gsO</members>
+		<name>Report</name>
 	</types>
-	<types>
-        <members>*</members>
-        <members>unfiled$public/Finished_Campaigns_by_Region_NVN</members>
-		<members>unfiled$public/All_Leads_Qte</members>
-		<members>unfiled$public/All_Users_MxJ</members>
-		<members>unfiled$public/All_Opportunities_OzM</members>
-        <name>Report</name>
-    </types>
 	<types>
 		<members>*</members>
 		<name>ReportType</name>
@@ -149,31 +129,5 @@
 		<members>*</members>
 		<name>StaticResource</name>
 	</types>
-	<types>
-        <members>*</members>
-        <name>AssignmentRule</name>
-    </types>
-	<types>
-        <members>*</members>
-        <name>AutoResponseRule</name>
-    </types>
-	<types>
-        <members>*</members>
-        <name>EmailTemplate</name>
-    </types>
-	<types>
-        <members>*</members>
-        <name>EscalationRule</name>
-    </types>
-	<types>
-        <members>*</members>
-		<members>unfiled$public/Dungeon_Region_Report_kc5</members>
-        <name>Report</name>
-    </types>
-	<types>
-    <members>public</members>
-    <members>Public_Dashboards/public</members>
-    <name>Dashboard</name>
-</types>
 	<version>51.0</version>
 </Package>
