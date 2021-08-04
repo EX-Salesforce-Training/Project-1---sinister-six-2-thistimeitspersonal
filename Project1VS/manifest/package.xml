@@ -129,5 +129,45 @@
 		<members>*</members>
 		<name>StaticResource</name>
 	</types>
+	<types>
+        <members>*</members>
+        <name>AssignmentRule</name>
+    </types>
+	<types>
+        <members>*</members>
+        <name>AutoResponseRule</name>
+    </types>
+	<types>
+        <members>*</members>
+        <name>EmailTemplate</name>
+    </types>
+	<types>
+        <members>*</members>
+        <name>EscalationRule</name>
+    </types>
+	<types>
+        <members>*</members>
+		<members>unfiled$public/Dungeon_Region_Report_kc5</members>
+        <name>Report</name>
+	</types>
+	<types>
+        <members>unfiled$public/leads_over_time_gsO</members>
+        <name>Report</name>
+    </types>
+    </types>
+	<types>
+    <members>public</members>
+    <members>Public_Dashboards/public</members>
+    <name>Dashboard</name>
+	<types>
+        <members>PublicDashboards/information</members>
+        <name>Dashboard</name>
+    </types>
+	<types>
+        <members>PublicDashboards</members>
+        <members>PublicDashboards/information</members>
+        <name>Dashboard</name>
+    </types>
+</types>
 	<version>51.0</version>
 </Package>
