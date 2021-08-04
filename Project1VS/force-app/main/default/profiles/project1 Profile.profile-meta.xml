@@ -153,6 +153,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>partyPageTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>ptyPgExtender</apexClass>
         <enabled>false</enabled>
     </classAccesses>

@@ -33,7 +33,7 @@
             	</apex:pageBlockSection>
             	<apex:pageBlockSection >
         			<apex:pageBlockTable value="{!cpaign}" var="cmp">
-                        <apex:column value="{!cmp.name}" headerValue="Campaign" />
+                        <apex:column value="{!cmp.Campaign_Name__c}" headerValue="Campaign" />
                         <apex:column value="{!cmp.Dungeon_Master__c}" headerValue="Dungeon Master" />
             		</apex:pageBlockTable>
             	</apex:pageBlockSection>
