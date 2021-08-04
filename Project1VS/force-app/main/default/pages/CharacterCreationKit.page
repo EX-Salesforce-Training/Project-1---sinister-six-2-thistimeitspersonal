@@ -23,37 +23,37 @@
         <br/><br/>
         <apex:outputLabel >Strength: </apex:outputLabel>
         <apex:selectList value="{!strengthDefault}" size="1">
-        	<apex:selectOptions value="{!strengthOptions}"></apex:selectOptions>
+        	<apex:selectOptions value="{!attributeOptions}"></apex:selectOptions>
         </apex:selectList>
         
         <br/><br/>
         <apex:outputLabel >Constitution: </apex:outputLabel>
         <apex:selectList value="{!constitutionDefault}" size="1">
-        	<apex:selectOptions value="{!constitutionOptions}"></apex:selectOptions>
+        	<apex:selectOptions value="{!attributeOptions}"></apex:selectOptions>
         </apex:selectList>
         
         <br/><br/>
         <apex:outputLabel >Dexterity: </apex:outputLabel>
         <apex:selectList value="{!dexterityDefault}" size="1">
-        	<apex:selectOptions value="{!dexterityOptions}"></apex:selectOptions>
+        	<apex:selectOptions value="{!attributeOptions}"></apex:selectOptions>
         </apex:selectList>
         
         <br/><br/>
         <apex:outputLabel >Wisdom: </apex:outputLabel>
         <apex:selectList value="{!wisdomDefault}" size="1">
-        	<apex:selectOptions value="{!wisdomOptions}"></apex:selectOptions>
+        	<apex:selectOptions value="{!attributeOptions}"></apex:selectOptions>
         </apex:selectList>
         
         <br/><br/>
         <apex:outputLabel >Intelligence: </apex:outputLabel>
         <apex:selectList value="{!intelligenceDefault}" size="1">
-        	<apex:selectOptions value="{!intelligenceOptions}"></apex:selectOptions>
+        	<apex:selectOptions value="{!attributeOptions}"></apex:selectOptions>
         </apex:selectList>
         
         <br/><br/>
         <apex:outputLabel >Charisma: </apex:outputLabel>
         <apex:selectList value="{!charismaDefault}" size="1">
-        	<apex:selectOptions value="{!charismaOptions}"></apex:selectOptions>
+        	<apex:selectOptions value="{!attributeOptions}"></apex:selectOptions>
         </apex:selectList>
         
         <br/><br/>

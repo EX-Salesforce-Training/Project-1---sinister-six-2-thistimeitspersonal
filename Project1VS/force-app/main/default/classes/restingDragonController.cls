@@ -6,7 +6,7 @@
 // 
 // Initial designer: Richard 'Jerry' Laughter
 // Creation Date: 7/29/2021
-// Latest Edit: 8/2/2021
+// Latest Edit: 8/3/2021
 //
 /////////////////////////////////////////
 
@@ -20,9 +20,8 @@ public class restingDragonController {
     }
     
     public static List<String> indexList (String index){
-        // casts object into list of objects
-
-
+		//creates a list of strings from the index of the character attribute list
+        
         List<charAttribute> curAttrList = getCharAttribute(index);
         List<String> finAttrList = new List<String>();
 
@@ -35,6 +34,9 @@ public class restingDragonController {
 
     }
 
+    //character attributes are obtained using the APIExchange callout function
+    //the resulting JSON is formatted into a map<string,object>
+    //this is then passed into a wrapper class such that the attributes can be extracted as desired
     public static List<charAttribute> getCharAttribute(String index){
 
         Map<String, Object> respMap = APIExchange.makeCallout('https://www.dnd5eapi.co/api/' + index);
@@ -53,6 +55,9 @@ public class restingDragonController {
 
     }
 
+    //the character attribute wrapper class takes in an object
+    //typecasts it to a set of strings which are stored in properties
+    //compatible with visualforce bindings
     public class charAttribute{
         public String name {get;set;}
         public String URL {get; set;}

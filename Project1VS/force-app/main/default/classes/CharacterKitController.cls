@@ -1,25 +1,28 @@
-/*
- * Author: Jacob Schwartz
- * Project1: DnD
- * Date: 8/1/2021
- * Last Edited: 8/2/2021
- * Description: Custom controller extension for CharacterCreationKit page.
- * 
- * Constructor set wheter it is a new character or editing an existing one,
- * taking parameters from Player page.
- * 
- * Many character attributes are Decimal value in org, and vf page has them displaying
- * as strings with selectoption. Defaults have been set in the constructor for the 
- * edit character that displays a characters saved attributes. On save, defaults are
- * converted from strings to integers to be uploaded to org. 
- */
+/////////////////////////////////////////
+//
+// Character creation kit
+// 
+// Purpose: allowing the players to create characters for their DnD campaign
+// 
+// Initial designer: Richard 'Jerry' Laughter
+// Creation Date: 7/29/2021
+// Latest Edit: 8/3/2021
+// 
+// Constructor set wheter it is a new character or editing an existing one,
+// taking parameters from Player page.
+// 
+// Many character attributes are Decimal value in org, and vf page has them displaying
+// as strings with selectoption. Defaults have been set in the constructor for the 
+// edit character that displays a characters saved attributes. On save, defaults are
+// converted from strings to integers to be uploaded to org. 
+// 
+//
+/////////////////////////////////////////
+
 
 public class CharacterKitController {
     
-    public Character__c character {get;set;}
-    //public String param{get;set;}
-    //public String sss {get;set;}
-    
+    public Character__c character {get;set;}    
     public String nameDefault {get;set;}
     public String strengthDefault {get;set;}
     public String constitutionDefault {get;set;}
@@ -30,8 +33,8 @@ public class CharacterKitController {
     private boolean isNewCharacter = true;
     
     public CharacterKitController(ApexPages.StandardController sc){
-        //GetParams();
-        //sc.view();
+		//obtains the ID of the currently selected character if applicable
+		//returns character attributes
         String idStr = ApexPages.currentPage().getParameters().get('ID');
         System.debug('Idstr: ' + idStr);
         System.debug('contolreexted: ' + sc.getId());
@@ -50,21 +53,26 @@ public class CharacterKitController {
             isNewCharacter = false;
         }
         else
+            //if no id is selected returns new character
             character = new Character__c();
     }
     
     public PageReference save(){
         try{
+            //checks to make sure that all inputs are valid before attempting to submit them to the database
         	character.Strength__c = CheckValidInput(strengthDefault);
         	character.Constitution__c = CheckValidInput(constitutionDefault);
         	character.Dexterity__c = CheckValidInput(dexterityDefault);
         	character.Wisdom__c = CheckValidInput(wisdomDefault);
         	character.Intelligence__c = CheckValidInput(intelligenceDefault);
 			character.Charisma__c = CheckValidInput(charismaDefault);
-        	if(isNewCharacter)
+ 
+            //inserts character if new, updates it if old
+            if(isNewCharacter)
             	insert character;
         	else
         		update character;
+			//redirects to the player page
             PageReference pr = Page.Player;
         	pr.setRedirect(true);
         	return pr;
@@ -75,7 +83,7 @@ public class CharacterKitController {
         
         return null;
     }
-    
+    //checks if input is number
     public Decimal CheckValidInput(String i){
         try{
             return Decimal.valueOf(i);
@@ -83,21 +91,9 @@ public class CharacterKitController {
             return 0;
         }
     }
-    /*
-    public String GetParam(){
-        return param;
-    }
-    
-    public String getFoo(){
-        return 'param';
-    }
-    
-    public void GetParams(){
-        System.debug('I am debuggognog');
-        //param = ApexPages.currentPage().getParameters().get('userName');
-        
-    }
-    */
+
+    //obtains list of DnD 5e races from the resting dragon controller using the rest API
+    ////returns it as a list of select options for a dropdown list
     public List<SelectOption> GetRaceOptions(){
         List<String> raceList = restingDragonController.indexList('races/');
 
@@ -110,6 +106,8 @@ public class CharacterKitController {
         return raceOptions;
     }
     
+    //obtains list of DnD 5e classes from the resting dragon controller using the rest API
+    ////returns it as a list of select options for a dropdown list
     public List<SelectOption> GetClassOptions(){
         List<String> classList = restingDragonController.indexList('classes/');
 
@@ -122,41 +120,12 @@ public class CharacterKitController {
         return classOptions;
     }
     
-    public List<SelectOption> GetStrengthOptions(){
+    //returns a list of integers from the setNumberList method for dropdown lists
+    public List<SelectOption> GetAttributeOptions(){
         List<SelectOption> strengthOptions = new List<SelectOption>();
         setNumberList(strengthOptions);
         return strengthOptions;
         
-    }
-    
-    public List<SelectOption> GetConstitutionOptions(){
-        List<SelectOption> constitutionOptions = new List<SelectOption>();
-        setNumberList(constitutionOptions);
-        return constitutionOptions;
-    }
-    
-    public List<SelectOption> GetDexterityOptions(){
-        List<SelectOption> dexterityOptions = new List<SelectOption>();
-        setNumberList(dexterityOptions);
-        return dexterityOptions;
-    }
-    
-    public List<SelectOption> GetWisdomOptions(){
-        List<SelectOption> wisdomOptions = new List<SelectOption>();
-        setNumberList(wisdomOptions);
-        return wisdomOptions;
-    }
-    
-    public List<SelectOption> GetIntelligenceOptions(){
-        List<SelectOption> intelligenceOptions = new List<SelectOption>();
-        setNumberList(intelligenceOptions);
-        return intelligenceOptions;
-    }
-    
-    public List<SelectOption> GetCharismaOptions(){
-        List<SelectOption> charismaOptions = new List<SelectOption>();
-        setNumberList(charismaOptions);
-        return charismaOptions;
     }
     
     private void setNumberList(List<SelectOption> tempList){

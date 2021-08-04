@@ -49,6 +49,14 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>ContactTriggerHandler</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>DnDAPIMock</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>DndCampaignController</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -133,6 +141,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>UtilityBelt</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>partyPageController</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -150,6 +162,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>restingDragonController</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>restingDragonControllerTest</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <custom>false</custom>
@@ -1242,6 +1258,10 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>userLeadPage</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>webtolead</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
     <recordTypeVisibilities>
