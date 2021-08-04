@@ -52,7 +52,7 @@ public class ptyPgExtender {
     }
     
     public List<DndCampaign__c> getCpaign() {
-        return [SELECT name, dungeon_master__c FROM DndCampaign__c where party__c =: selectedParty];
+        return [SELECT campaign_name__c, dungeon_master__c FROM DndCampaign__c where party__c =: selectedParty];
     }
     
     

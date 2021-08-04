@@ -25,6 +25,10 @@
 		<name>AuraDefinitionBundle</name>
 	</types>
 	<types>
+        <members>*</members>
+        <name>AutoResponseRule</name>
+    </types>
+	<types>
 		<members>*</members>
 		<name>CustomField</name>
 	</types>
@@ -42,6 +46,10 @@
 		<members>User</members>
 		<name>CustomObject</name>
 	</types>
+	<types>
+        <members>*</members>
+        <name>EmailTemplate</name>
+    </types>
 	<types>
 		<members>*</members>
 		<name>GlobalValueSet</name>
