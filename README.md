@@ -1,4 +1,4 @@
-# Project-1---sinister-six-2-thistimeitspersonal
+# Project One
 
 ## Description
 For this project, we created Salesforce business processes for a fictional business called **Dungeons and Dragons Universe.** This business provides a paid, nationwide service that allows Users to play Dungeons and Dragons with other local Users via a location-based matching system, as well as company-provided Dungeon Masters who manage campaigns.
